@@ -36,11 +36,7 @@ void T_cluster::cluster(int _time)
         time_ts = 1 + rand() % (_time);
         if (task.empty() && numb_proc_ts <= free_pr)
         {
-
-          //cout << numb_proc_ts << " " << free_pr << endl;
           take_pr(numb_proc_ts); //занять процессоры
-
-         // cout << numb_proc_ts << " " << free_pr << endl;
           cluster_tasks.add_elem(time_ts, numb_proc_ts);//добавить в список
           number_ts++;//выполняющиеся задачи
         }
@@ -56,10 +52,7 @@ void T_cluster::cluster(int _time)
             time_element = tact.pop();
             if (element <= free_pr) //если хватает процессоров, то на кластер
             {
-              cout << element << " " <<  free_pr <<endl;
               take_pr(element);
-
-              //cout << element << " " << free_pr << endl;
               cluster_tasks.add_elem(time_element, element);
               number_ts++;
             }
@@ -74,8 +67,6 @@ void T_cluster::cluster(int _time)
     }
     // либо задача появилась, либо нет
     completed_tasks = cluster_tasks.check_and_delete(); //количество освободившихся процессоров, если не были заняты или всё ещё выполняются задачи, то вернет 0
-    //cout << completed_tasks << endl;
-     
     take_pr(-completed_tasks); // прибавляем освободившиеся процессоры
     time++;
   }
