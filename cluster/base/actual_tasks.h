@@ -110,6 +110,7 @@ public:
         }
       }
     }
+    cout <<"Point " <<  point  << endl;
     return point;
   }
   void enter()

@@ -8,7 +8,7 @@
 #include "queue.h"
 
 using namespace std;
-const int max_size = 100;
+const int max_size = 10000;
 
 class T_cluster
 {

@@ -1,7 +1,7 @@
 ﻿#ifndef __QUEUE_H__
 #define __QUEUE_H__
 
-const int max_queue_size = 100;
+const int max_queue_size = 10000;
 
 template <class T>
 class T_queue
@@ -37,7 +37,7 @@ public:
     if (empty())
       throw "empty";
     queue_size--;
-    return pMem[top - queue_size];
+    return pMem[(size + top - queue_size) % size];
   }
   bool empty()
   {
