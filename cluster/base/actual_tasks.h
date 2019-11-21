@@ -23,7 +23,7 @@ public:
   {
     return pFirst == nullptr;
   }
-  void add_elem(int val, int num) // такты, количество процессоров
+  void add_elem(int val, int num) 
   {
     if (val != 0 && num!=0)
     {
@@ -46,7 +46,7 @@ public:
     }
   }
   
-  int check_and_delete() //удалять элемент с 0 значением (0 тактов)
+  int check_and_delete() 
   {
     int point = 0;
     link *p = pFirst;
@@ -61,11 +61,11 @@ public:
       }
       p->data = p->data - 1;      
       p = pFirst;
-      while (p->pNext != nullptr) // удаление из списка
+      while (p->pNext != nullptr) 
       {
         if (p->data == 0)
         {
-          if (p == pFirst) // первый элемент
+          if (p == pFirst) 
           {
             pFirst = p->pNext;
             point = point + p->processors;
@@ -85,19 +85,19 @@ public:
             size--;
           }
         }
-        if(p->pNext!= nullptr) // если последний остался
+        if(p->pNext!= nullptr) 
           p = p->pNext;
       }
       if (p->data == 0)
       {
-        if (size == 1) //единственный элемент
+        if (size == 1) 
         {
           point = point + p->processors;
           delete p;
           pFirst = nullptr;
           size--;
         }
-        else //конец
+        else 
         {
           point = point + p->processors;
           link *help = pFirst;
@@ -110,13 +110,12 @@ public:
         }
       }
     }
-    cout <<"Point " <<  point  << endl;
     return point;
   }
   void enter()
   {
     link *p = pFirst;
-    cout << "Список: " << endl;
+    cout << "Г‘ГЇГЁГ±Г®ГЄ: " << endl;
     while (p != nullptr)
     {
       cout << p->data << " ";
